@@ -10,9 +10,9 @@ def synthesize_data(w, b, n):
 
 true_w = torch.tensor([2.0, -3.4])
 true_b = 4.2
-features, labels = synthesize_data(true_w, true_b, 1000)
+features, labels = synthesize_data(true_w, true_b, 1000)#这里是真实的数据
 
-print('features:', features[0], '\nlabel:', labels[0])
+print('features:', features[0], '\nlabel:', labels[0])#[0]的意义是取个样，不全部输出
 print("-" * 50)
 
 plt.figure(figsize=(5, 3.5))
@@ -56,7 +56,7 @@ def sgd(paras, lr, batch_size):
             para.grad.zero_()
 
 lr = 0.03
-num_epochs = 3
+num_epochs = 5
 net = linreg
 loss = squ_loss
 

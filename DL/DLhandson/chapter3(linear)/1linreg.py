@@ -6,14 +6,15 @@ n = 10000
 a = torch.ones([n])
 b = torch.ones([n])
 
-class Timer: #@save
+
+class Timer:  # @save
     """记录多次运行时间"""
+
     def __init__(self):
         self.times = []
         self.start()
 
     def start(self):
-
         """启动计时器"""
         self.tik = time.time()
 
@@ -34,7 +35,8 @@ class Timer: #@save
         """返回累计时间"""
         return np.array(self.times).cumsum().tolist()
 
-timer=Timer()
+
+timer = Timer()
 d = a + b
 
 print(f"{timer.stop():.5f} sec")

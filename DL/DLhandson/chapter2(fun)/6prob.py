@@ -1,6 +1,7 @@
 import torch
 import matplotlib
-matplotlib.use('Qt5Agg')#linux version
+
+matplotlib.use("Qt5Agg")  # linux version
 import matplotlib.pyplot as plt
 from torch.distributions import multinomial
 
@@ -25,8 +26,8 @@ print("1000次投掷的相对频率：", relative_freq)
 
 # 5. 500组实验，每组抽取10个样本
 counts = multinomial.Multinomial(10, fair_probs).sample((500,))  # 形状: (500, 6)
-cum_counts = counts.cumsum(dim=0)                               # 沿实验组累积求和
-estimates = cum_counts / cum_counts.sum(dim=1, keepdims=True)   # 计算累积相对频率
+cum_counts = counts.cumsum(dim=0)  # 沿实验组累积求和
+estimates = cum_counts / cum_counts.sum(dim=1, keepdims=True)  # 计算累积相对频率
 
 # 6. 用 Matplotlib 绘制6条概率估计曲线
 plt.figure(figsize=(6, 4.5))
@@ -34,11 +35,11 @@ for i in range(6):
     plt.plot(estimates[:, i].numpy(), label=f"P(die={i + 1})")
 
 # 添加理论值水平线（1/6 ≈ 0.167）
-plt.axhline(y=1/6, color='black', linestyle='dashed', label='True probability (1/6)')
+plt.axhline(y=1 / 6, color="black", linestyle="dashed", label="True probability (1/6)")
 
-plt.xlabel('Groups of experiments')
-plt.ylabel('Estimated probability')
+plt.xlabel("Groups of experiments")
+plt.ylabel("Estimated probability")
 plt.legend()
-plt.grid(True, linestyle=':', alpha=0.7)
+plt.grid(True, linestyle=":", alpha=0.7)
 plt.tight_layout()
 plt.show()

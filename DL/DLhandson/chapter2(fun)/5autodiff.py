@@ -1,14 +1,14 @@
 import torch
 
-x=torch.arange(5.,requires_grad=True)
+x = torch.arange(5.0, requires_grad=True)
 print(x)
 
-y=2*torch.dot(x,x)
+y = 2 * torch.dot(x, x)
 print(y)
 print(y.backward())
 print(x.grad)
 
-print(x.grad==4*x)
+print(x.grad == 4 * x)
 
 x.grad.zero_()
 y = x.sum()

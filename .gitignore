@@ -45,4 +45,4 @@ env/
 .netrwhist
 
 # macOS (如果有跨平台需求)
-.DS_Store
+.DS_Store.ipynb_checkpoints/

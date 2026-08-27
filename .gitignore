@@ -29,6 +29,7 @@ __pycache__/
 venv/
 ENV/
 env/
+ml_env/
 
 # ========================
 # IDE / 编辑器配置
